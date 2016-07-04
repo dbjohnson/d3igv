@@ -1,11 +1,11 @@
-# oncoview
+# d3igv
+
+[![License](https://img.shields.io/github/license/dbjohnson/oncoview.svg)]()
+[![Code Climate](https://codeclimate.com/github/dbjohnson/oncoview/badges/gpa.svg)](https://codeclimate.com/github/dbjohnson/looptimer)
 
 This is a hobby project using [D3](https://d3js.org/) to recreate a lightweight [Integrated Genome Viewer](https://www.broadinstitute.org/igv/)-like interface for viewing genomic sequencing data.
 
 This project does not currently allow for processing reads from real BAM files; all data is simulated via crude model (no indels, no correlation between read presence for multiple SNPs, etc).   This is just a visualization exercise.
-
-[![License](https://img.shields.io/github/license/dbjohnson/oncoview.svg)]()
-[![Code Climate](https://codeclimate.com/github/dbjohnson/oncoview/badges/gpa.svg)](https://codeclimate.com/github/dbjohnson/looptimer)
 
 ## Quickstart
 
