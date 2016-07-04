@@ -4,6 +4,8 @@ This is a hobby project trying to recreate a lightweight [Integrated Genome View
 
 This project does not currently allow for processing reads from real BAM files; all data is simulated via crude model (no indels, no correlation between read presence for multiple SNPs, etc).   This is just a visualization exercise.
 
+[![Code Climate](https://codeclimate.com/github/dbjohnson/oncoview/badges/gpa.svg)](https://codeclimate.com/github/dbjohnson/looptimer)
+[![License](https://img.shields.io/github/license/dbjohnson/oncoview.svg)]()
 
 ## Sample output
 ![](sample.png)
