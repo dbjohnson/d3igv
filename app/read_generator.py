@@ -3,10 +3,12 @@ import random
 BASES = ['A', 'C', 'G', 'T']
 
 
-def make_SNP(reference_sequence, tumor_content=0.3, homozygous=random.choice([True, False])):
+def make_SNP(reference_sequence, tumor_content=0.3,
+             homozygous=random.choice([True, False]),
+             pos=None):
     max_af = tumor_content if homozygous else tumor_content / 2.
     af = (1 + random.random()) / 2 * max_af
-    return {'pos': random.randrange(len(reference_sequence)),
+    return {'pos': pos or random.randrange(len(reference_sequence)),
             'base': random.choice(BASES),
             'af': af}
 
@@ -48,13 +50,13 @@ def make_fake_read(reference_sequence, read_error_rate, SNPs):
 
 def generate_fake_reads(read_error_rate=0.03, sequence_length=80, num_reads=100,
                         max_SNPs=4, tumor_content=0.3):
-    reference_sequence = [random.choice(BASES) for _ in xrange(sequence_length)]
-    n_SNPs = random.randrange(max_SNPs)
-    SNPs = [make_SNP(reference_sequence, tumor_content=tumor_content)
-            for _ in xrange(n_SNPs)]
+    reference_sequence = [random.choice(BASES)
+                          for _ in xrange(sequence_length)]
 
-    reticle_SNP = make_SNP(reference_sequence, tumor_content)
-    reticle_SNP['pos'] = sequence_length / 2
+    SNPs = [make_SNP(reference_sequence, tumor_content)
+            for _ in xrange(random.randrange(max_SNPs))]
+
+    reticle_SNP = make_SNP(reference_sequence, tumor_content, pos=sequence_length / 2)
     SNPs.append(reticle_SNP)
 
     reads = [make_fake_read(reference_sequence, read_error_rate, SNPs)
