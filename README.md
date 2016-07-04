@@ -1,7 +1,7 @@
 # d3igv
 
-[![License](https://img.shields.io/github/license/dbjohnson/oncoview.svg)]()
-[![Code Climate](https://codeclimate.com/github/dbjohnson/oncoview/badges/gpa.svg)](https://codeclimate.com/github/dbjohnson/looptimer)
+[![License](https://img.shields.io/github/license/dbjohnson/d3igv.svg)]()
+[![Code Climate](https://codeclimate.com/github/dbjohnson/d3igv/badges/gpa.svg)](https://codeclimate.com/github/dbjohnson/d3igv)
 
 This is a hobby project using [D3](https://d3js.org/) to recreate a lightweight [Integrated Genome Viewer](https://www.broadinstitute.org/igv/)-like interface for viewing genomic sequencing data.
 
