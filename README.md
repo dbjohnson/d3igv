@@ -2,7 +2,7 @@
 
 This is a hobby project trying to recreate a lightweight [Integrated Genome Viewer](https://www.broadinstitute.org/igv/)-like interface for viewing genomic sequencing data using [D3](https://d3js.org/).
 
-This project does not currently allow for processing reads from real BAM files; all data is simulated via crude model.
+This project does not currently allow for processing reads from real BAM files; all data is simulated via crude model (no indels, no correlation between read presence for multiple SNPs, etc).   This is just a visualization exercise.
 
 
 ## Sample output

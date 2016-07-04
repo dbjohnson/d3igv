@@ -49,9 +49,14 @@ def make_fake_read(reference_sequence, read_error_rate, SNPs):
 def generate_fake_reads(read_error_rate=0.03, sequence_length=80, num_reads=100,
                         max_SNPs=4, tumor_content=0.3):
     reference_sequence = [random.choice(BASES) for _ in xrange(sequence_length)]
-    n_SNPs = random.randrange(max_SNPs) + 1
+    n_SNPs = random.randrange(max_SNPs)
     SNPs = [make_SNP(reference_sequence, tumor_content=tumor_content)
             for _ in xrange(n_SNPs)]
+
+    reticle_SNP = make_SNP(reference_sequence, tumor_content)
+    reticle_SNP['pos'] = sequence_length / 2
+    SNPs.append(reticle_SNP)
+
     reads = [make_fake_read(reference_sequence, read_error_rate, SNPs)
              for _ in xrange(num_reads)]
 

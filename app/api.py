@@ -11,7 +11,7 @@ from app import read_generator
 api = Flask(__name__)
 
 
-DEFAULT_ARGS = {'read_error_rate': 0.03,
+DEFAULT_ARGS = {'read_error_rate': 0.003,
                 'sequence_length': 80,
                 'num_reads': 100,
                 'max_SNPs': 4,

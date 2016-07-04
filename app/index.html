@@ -43,32 +43,26 @@
           readTrackHeight = 500
           width = maxWidth
           data = null
-          ascending = true;
+          positionalSort = false
+          lastSortPos = -1;
 
       var tooltip = d3.select("body").append("div")
           .attr("class", "tooltip")
           .style("opacity", 0);
 
-      var svgRefSeq = d3.select("#refseq_track").append("svg")
-            .attr("width", maxWidth + margin.left + margin.right)
-            .attr("height", refSeqTrackHeight + margin.top)
-            .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      function makeSVG(divID, trackHeight) {
+        return d3.select(divID).append("svg")
+                .attr("width", maxWidth + margin.left + margin.right)
+                .attr("height", trackHeight + margin.top)
+                .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      }
 
-      var svgCoverage = d3.select("#coverage_track").append("svg")
-            .attr("width", maxWidth + margin.left + margin.right)
-            .attr("height", coverageTrackHeight + margin.top)
-            .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-      var svgReads = d3.select("#reads_track").append("svg")
-            .attr("width", maxWidth + margin.left + margin.right)
-            .attr("height", readTrackHeight + margin.top + margin.bottom)
-            .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      var svgRefSeq = makeSVG("#refseq_track", refSeqTrackHeight);
+      var svgCoverage = makeSVG("#coverage_track", coverageTrackHeight);
+      var svgReads = makeSVG("#reads_track", readTrackHeight);
 
       function renderRefSeq() {
-        // reference sequence
         var referenceLabels = svgRefSeq.selectAll(".referenceLabel")
             .data(data.reference.split(""))
             .enter().append("text")
@@ -78,12 +72,7 @@
               .style("text-anchor", "middle")
               .attr("transform", "translate(" + gridSizeX / 2 + ", "  + refSeqTrackHeight / 1.5 + ")")
               .style("fill", function(d) { return colorScale(d); })
-              .on({"click": function(d, i) {
-                ascending = !ascending
-                sortReads(byPosition=i);
-                renderReads();
-              }});
-      }
+      };
 
       function renderCoverage() {
         // reformat coverage to a list of {values: {base: .. }
@@ -146,54 +135,22 @@
                                "C: " + data.coverage[i].C + "<br>" +
                                "G: " + data.coverage[i].G + "<br>" +
                                "T: " + data.coverage[i].T)
-                      .style("left", (d3.event.pageX) + "px")
+                      .style("left", (d3.event.pageX + 10) + "px")
                       .style("top", (d3.event.pageY - 28) + "px");
                   })
               .on("mouseout", function(d) {
                   tooltip.transition()
                       .duration(500)
                       .style("opacity", 0);
-              });
-
-              ;
+              })
+              .on({"click": function(d, i) {
+                positionalSort = (i != lastSortPos) || !positionalSort;
+                lastSortPos = i;
+                sortReads(position=positionalSort ? i : null);
+                renderReads();
+              }});
       }
 
-      function sortReads(byPosition=null) {
-        data.reads.sort(function (a, b) {
-          function score(read) {
-            var s = 0
-            if (byPosition) {
-              s = data.coverage[byPosition][read.sequence[byPosition - read.start]];
-              if (s == null) {
-                return s;
-              }
-              else {
-                s *= data.reference.length * data.reads.length;
-              }
-            }
-            if (read.fwd) {
-              s += data.reference.length * 5;
-            }
-            s += read.sequence.length;
-            s -= read.start;
-            return s;
-          }
-
-          var scoreA = score(a)
-              scoreB = score(b)
-              delta = scoreA - scoreB;
-
-          // always put reads without coverage at the specified position last
-          if (scoreA == null || scoreB == null) {
-            if (scoreA == null && scoreB == null) {
-              return 0
-            }
-            return (scoreA == null ? 1 : -1)
-          }
-
-          return delta * (ascending ? -1 : 1);
-        })
-      }
 
       function renderReads() {
         function expandReads(data) {
@@ -240,18 +197,81 @@
         cards.exit().remove();
       };
 
+
+      function sortReads(position=null) {
+        function compare(a, b, byPosition=true) {
+          /*
+          sort levels:
+          1) read covers base
+          2) read base coverage
+          3) foward reads
+          4) by start delay
+          */
+
+          if (byPosition && position) {
+            function readAtBase(read) {
+              return read.sequence[position - read.start];
+            }
+
+            function baseCoverage(base) {
+              if (base == data.reference[position]) {
+                // put wild-type reads at the bottom
+                return 0;
+              }
+              else {
+                return data.coverage[position][base];
+              }
+            }
+
+            readAbase = readAtBase(a);
+            readBbase = readAtBase(b);
+
+            if (readAbase && readBbase) {
+              var delta = baseCoverage(readBbase) - baseCoverage(readAbase);
+              if (delta == 0) {
+                if (readAbase == readBbase) {
+                  return compare(a, b, false)
+                }
+                delta = readAbase > readBbase ? 1 : -1;
+              }
+              return delta
+            }
+            else if (readAbase || readBbase) {
+              var delta = readAbase ? -10 : 10;
+              return delta * data.reference.length + compare(a, b, false);
+            }
+            else {
+              return compare(a, b, false);
+            }
+          }
+          else {
+            var s = 0
+            if (a.fwd != b.fwd) {
+              s += a.fwd ? -data.reference.length : data.reference.length;
+            }
+            function startDelay(read) {
+              return read.fwd ? read.start : data.reference.length - (read.start + read.sequence.length);
+            }
+
+            s += startDelay(a) - startDelay(b);
+            return s;
+          }
+        }
+
+        data.reads.sort(compare)
+      }
+
+
       function render(data) {
         gridSizeX = Math.floor((maxWidth - margin.left - margin.right) / data.reference.length)
         width = gridSizeX * data.reference.length
 
-        sortReads()
+        sortReads(position=Math.floor(data.reference.length / 2))
         renderRefSeq();
         renderCoverage();
         renderReads();
       }
 
-
-      var data;
       d3.xhr("/reads")
           .header("Content-Type", "application/json")
           .post(JSON.stringify({
