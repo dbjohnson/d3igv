@@ -14,7 +14,7 @@
       div.tooltip {
         position: absolute;
         text-align: left;
-        width: 30px;
+        width: 40px;
         height: 50px;
         padding: 10px;
         font: 12px sans-serif;
@@ -49,7 +49,7 @@
       d3.xhr("/reads")
           .header("Content-Type", "application/json")
           .post(JSON.stringify({
-                  num_reads: 92,
+                  num_reads: 300,
                   sequence_length: 80,
                   read_error_rate: 0.003
               }),

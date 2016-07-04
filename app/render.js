@@ -151,7 +151,7 @@ function renderReads(data, gridSizeX, trackHeight=500) {
       .attr("y", function(d) { return d.y * gridSizeY; })
       .attr("rx", 2)
       .attr("ry", 2)
-      .attr("class", "bordered")
+      // .attr("class", "bordered")
       .attr("width", gridSizeX)
       .attr("height", gridSizeY);
 
