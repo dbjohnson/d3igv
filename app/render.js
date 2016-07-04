@@ -33,7 +33,6 @@ function render(data, gridSizeX) {
 
 ///////////////////////////////////////////////////////////////
 
-
 function renderRefSeq(data, gridSizeX, trackHeight=10) {
   svgRefSeq.selectAll(".referenceLabel")
       .data(data.reference.split(""))
@@ -49,25 +48,22 @@ function renderRefSeq(data, gridSizeX, trackHeight=10) {
 ///////////////////////////////////////////////////////////////
 
 function renderCoverage(data, gridSizeX, trackHeight=40) {
-
-  // reformat coverage to a list of {values: {base: .. }
+  // reformat coverage to [[{base: "A", count: 13}, ...], [{base: "C", count: 0}, ...], ... ]
+  // to play nice with d3.layout.stack
   var coverage = bases.map(function (b) {
-    return {
-      values: data.coverage.map(function (d) {
+    return data.coverage.map(function (d) {
         return {base: b,
                 count: d[b]};
       })
-    };
   });
 
   var stack = d3.layout.stack()
-    .values(function(d) { return d.values; })
     .x(function(d, i) { return i * gridSizeX; })
     .y(function(d) { return d.count; })
   var stacked = stack(coverage);
 
   var maxY = d3.max(stacked, function(d) {
-    return d3.max(d.values, function(d) {
+    return d3.max(d, function(d) {
       return d.y0 + d.y;
     });
   });
@@ -82,7 +78,7 @@ function renderCoverage(data, gridSizeX, trackHeight=40) {
 
   // bind a <g> tag for each layer
   var layers = svgCoverage.selectAll('g.layer')
-    .data(stacked, function(d) { return d.values[0].base; })
+    .data(stacked, function(d) { return d[0].base; })
       .enter()
         .append('g')
           .attr('class', 'layer');
@@ -90,7 +86,7 @@ function renderCoverage(data, gridSizeX, trackHeight=40) {
   // bind a <rect> to each value inside the layer
   var referenceBases = data.reference.split("");
   layers.selectAll('rect')
-    .data(function(d) { return d.values; })
+    .data(function(d) { return d; })
     .enter()
       .append('rect')
         .attr('x', function(d, i) { return x(i); })
@@ -102,15 +98,12 @@ function renderCoverage(data, gridSizeX, trackHeight=40) {
         })
         .attr('fill', function(d, i) {return d.base === referenceBases[i] ? "grey" : colorScale(d.base)})
         .on("mouseover", function(d, i) {
+            tooltip.html(bases.map(function (b) { return b + ": " + data.coverage[i][b]; }).join("<br>"))
+                .style("left", (d3.event.pageX + 10) + "px")
+                .style("top", (d3.event.pageY - 28) + "px");
             tooltip.transition()
                 .duration(200)
                 .style("opacity", .9);
-            tooltip.html("A: " + data.coverage[i].A + "<br>" +
-                         "C: " + data.coverage[i].C + "<br>" +
-                         "G: " + data.coverage[i].G + "<br>" +
-                         "T: " + data.coverage[i].T)
-                .style("left", (d3.event.pageX + 10) + "px")
-                .style("top", (d3.event.pageY - 28) + "px");
             })
         .on("mouseout", function(d) {
             tooltip.transition()
@@ -127,6 +120,7 @@ function renderCoverage(data, gridSizeX, trackHeight=40) {
           sortReads(data, position=positionalSort ? i : null);
           renderReads(data, gridSizeX);
         }});
+
 }
 
 ///////////////////////////////////////////////////////////////
