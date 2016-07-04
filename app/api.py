@@ -29,5 +29,10 @@ def get_reads():
 
 
 @api.route('/', methods=['GET'])
-def index():
+def default():
     return send_from_directory(os.path.dirname(__file__), 'index.html')
+
+
+@api.route('/<path:filename>', methods=['GET'])
+def static_pages(filename):
+    return send_from_directory(os.path.dirname(__file__), filename)
