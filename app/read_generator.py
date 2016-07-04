@@ -57,6 +57,7 @@ def generate_fake_reads(read_error_rate=0.03, sequence_length=80, num_reads=100,
             for _ in xrange(random.randrange(max_SNPs))]
 
     reticle_SNP = make_SNP(reference_sequence, tumor_content, pos=sequence_length / 2)
+    reticle_SNP['af'] = max(0.05, reticle_SNP['af'])
     SNPs.append(reticle_SNP)
 
     reads = [make_fake_read(reference_sequence, read_error_rate, SNPs)

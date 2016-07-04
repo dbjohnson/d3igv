@@ -46,14 +46,6 @@
                {div: "#coverage_track", height: 40},
                {div: "#reads_track", height: 500})
 
-      function render(data) {
-        gridSizeX = (width - margin.left - margin.right) / data.reference.length;
-        sortReads(data, position=Math.floor(data.reference.length / 2));
-        renderRefSeq(data, gridSizeX);
-        renderCoverage(data, gridSizeX);
-        renderReads(data, gridSizeX);
-      }
-
       d3.xhr("/reads")
           .header("Content-Type", "application/json")
           .post(JSON.stringify({
@@ -66,7 +58,8 @@
                       document.close();
                   }
                   data = JSON.parse(request.response);
-                  render(data);
+                  gridSizeX = (width - margin.left - margin.right) / data.reference.length;
+                  render(data, gridSizeX);
               });
     </script>
   </body>

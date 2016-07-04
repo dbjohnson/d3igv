@@ -6,6 +6,7 @@ var bases = ["C", "G", "A", "T"],
     svgCoverage = null,
     svgReads = null;
 
+///////////////////////////////////////////////////////////////
 
 function initSVGs(width, margin, refseq, coverage, reads) {
   function makeSVG(track) {
@@ -19,6 +20,19 @@ function initSVGs(width, margin, refseq, coverage, reads) {
   svgCoverage = makeSVG(coverage);
   svgReads = makeSVG(reads);
 }
+
+///////////////////////////////////////////////////////////////
+
+function render(data, gridSizeX) {
+  positionalSort = true
+  sortReads(data, position=Math.floor(data.reference.length / 2));
+  renderRefSeq(data, gridSizeX);
+  renderCoverage(data, gridSizeX);
+  renderReads(data, gridSizeX);
+}
+
+///////////////////////////////////////////////////////////////
+
 
 function renderRefSeq(data, gridSizeX, trackHeight=10) {
   svgRefSeq.selectAll(".referenceLabel")
@@ -104,6 +118,12 @@ function renderCoverage(data, gridSizeX, trackHeight=40) {
                 .style("opacity", 0);
         })
         .on({"click": function(d, i) {
+          if (i != lastSortPos) {
+            positionalSort = true;
+          }
+          else {
+            positionalSort = !positionalSort;
+          }
           sortReads(data, position=positionalSort ? i : null);
           renderReads(data, gridSizeX);
         }});
@@ -169,6 +189,7 @@ function sortReads(data, position=null) {
     */
 
     if (byPosition && position) {
+      lastSortPos = position
       function readAtBase(read) {
         return read.sequence[position - read.start];
       }
