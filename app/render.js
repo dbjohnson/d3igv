@@ -31,7 +31,6 @@ function render(data, gridSizeX) {
   renderReads(data, gridSizeX);
 }
 
-///////////////////////////////////////////////////////////////
 
 function renderRefSeq(data, gridSizeX, trackHeight=10) {
   svgRefSeq.selectAll(".referenceLabel")
@@ -48,79 +47,84 @@ function renderRefSeq(data, gridSizeX, trackHeight=10) {
 ///////////////////////////////////////////////////////////////
 
 function renderCoverage(data, gridSizeX, trackHeight=40) {
-  // reformat coverage to [[{base: "A", count: 13}, ...], [{base: "C", count: 0}, ...], ... ]
-  // to play nice with d3.layout.stack
-  var coverage = bases.map(function (b) {
-    return data.coverage.map(function (d) {
-        return {base: b,
-                count: d[b]};
-      })
+  var maxCoverage = d3.max(data.coverage, function(d) {
+    return d3.sum(bases.map(function (b) { return d[b]; }));
   });
 
-  var stack = d3.layout.stack()
-    .x(function(d, i) { return i * gridSizeX; })
-    .y(function(d) { return d.count; })
-  var stacked = stack(coverage);
+  var yscale = d3.scale.linear()
+     .domain([0, maxCoverage])
+    .range([0, trackHeight]);
 
-  var maxY = d3.max(stacked, function(d) {
-    return d3.max(d, function(d) {
-      return d.y0 + d.y;
-    });
-  });
+  var stacked = []
+      referenceBases = data.reference.split("");
 
-  var y = d3.scale.linear()
-    .domain([0, maxY])
-    .range([trackHeight, 0]);
-
-  var x = d3.scale.linear()
-    .domain([0, data.reference.length])
-    .range([0, gridSizeX * data.reference.length]);
-
-  // bind a <g> tag for each layer
-  var layers = svgCoverage.selectAll('g.layer')
-    .data(stacked, function(d) { return d[0].base; })
-      .enter()
-        .append('g')
-          .attr('class', 'layer');
-
-  // bind a <rect> to each value inside the layer
-  var referenceBases = data.reference.split("");
-  layers.selectAll('rect')
-    .data(function(d) { return d; })
-    .enter()
-      .append('rect')
-        .attr('x', function(d, i) { return x(i); })
-        .attr('width', gridSizeX)
-        .attr('y', function(d) {
-          return y(d.y0 + d.y);
-        }).attr('height', function(d) {
-          return trackHeight - y(d.y)
-        })
-        .attr('fill', function(d, i) {return d.base === referenceBases[i] ? "grey" : colorScale(d.base)})
-        .on("mouseover", function(d, i) {
-            tooltip.html(bases.map(function (b) { return b + ": " + data.coverage[i][b]; }).join("<br>"))
-                .style("left", (d3.event.pageX + 10) + "px")
-                .style("top", (d3.event.pageY - 28) + "px");
-            tooltip.transition()
-                .duration(200)
-                .style("opacity", .9);
-            })
-        .on("mouseout", function(d) {
-            tooltip.transition()
-                .duration(500)
-                .style("opacity", 0);
-        })
-        .on({"click": function(d, i) {
-          if (i != lastSortPos) {
-            positionalSort = true;
+  for (i in data.coverage) {
+    var y = 0,
+        cov = data.coverage[i],
+        referenceBase = referenceBases[i],
+        sortedBases = bases.slice().sort(function (a, b) {
+          // sort bases by coverage so that the bases with the highest
+          // read count go at the bottom of the stacked bar.  The reference
+          // base always goes at the top (not interesting)
+          if (b === referenceBase) {
+            return -1;
+          }
+          else if (a === referenceBase) {
+            return 1;
           }
           else {
-            positionalSort = !positionalSort;
-          }
-          sortReads(data, position=positionalSort ? i : null);
-          renderReads(data, gridSizeX);
-        }});
+            return cov[a] - cov[b]; }
+        })
 
+
+    for (b in sortedBases) {
+      var base = sortedBases[b],
+          height = yscale(cov[base])
+
+      stacked.push({
+        base: base,
+        position: i,
+        x: i * gridSizeX,
+        y: trackHeight - y - height,
+        height: height,
+        color: base === referenceBase ? "grey" : colorScale(base),
+        stackOrder: sortedBases
+      })
+      y += height;
+    }
+  }
+
+  svgCoverage.selectAll("*").remove();
+  var cards = svgCoverage.selectAll(".card").data(stacked);
+  cards.enter().append("rect")
+      .attr("x", function(d) { return d.x })
+      .attr("y", function(d) { return d.y; })
+      .attr("width", gridSizeX)
+      .attr("height", function(d) { return d.height; })
+      .attr('fill', function(d, i) { return d.color; } )
+      .on("mouseover", function(d, i) {
+          tooltip.html(d.stackOrder.map(function (b) { return b + ": " + data.coverage[d.position][b]; }).reverse().join("<br>"))
+              .style("left", (d3.event.pageX + 10) + "px")
+              .style("top", (d3.event.pageY - 28) + "px");
+          tooltip.transition()
+              .duration(200)
+              .style("opacity", .9);
+          })
+      .on("mouseout", function(d) {
+          tooltip.transition()
+              .duration(500)
+              .style("opacity", 0);
+      })
+      .on({"click": function(d) {
+        if (d.position != lastSortPos) {
+          positionalSort = true;
+        }
+        else {
+          positionalSort = !positionalSort;
+        }
+        sortReads(data, position=positionalSort ? d.position : null);
+        renderReads(data, gridSizeX);
+      }});
 }
 
 ///////////////////////////////////////////////////////////////
