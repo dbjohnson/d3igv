@@ -103,9 +103,12 @@ function renderCoverage(data, gridSizeX, trackHeight=40) {
       .attr("height", function(d) { return d.height; })
       .attr('fill', function(d, i) { return d.color; } )
       .on("mouseover", function(d, i) {
-          tooltip.html(d.stackOrder.map(function (b) { return b + ": " + data.coverage[d.position][b]; }).reverse().join("<br>"))
+          tooltip.html(d.stackOrder.map(function (b) {
+                return "<font color=" + colorScale(b) + ">" +
+                       b + ": " + data.coverage[d.position][b]; })
+                .reverse().join("<br>"))
               .style("left", (d3.event.pageX + 10) + "px")
-              .style("top", (d3.event.pageY - 28) + "px");
+              .style("top", (d3.event.pageY - 28) + "px")
           tooltip.transition()
               .duration(200)
               .style("opacity", .9);
@@ -153,8 +156,8 @@ function renderReads(data, gridSizeX, trackHeight=500) {
   cards.enter().append("rect")
       .attr("x", function(d) { return d.x * gridSizeX; })
       .attr("y", function(d) { return d.y * gridSizeY; })
-      .attr("rx", 2)
-      .attr("ry", 2)
+      // .attr("rx", 2)
+      // .attr("ry", 2)
       // .attr("class", "bordered")
       .attr("width", gridSizeX)
       .attr("height", gridSizeY);
