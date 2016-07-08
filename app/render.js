@@ -31,6 +31,7 @@ function render(data, gridSizeX) {
   renderReads(data, gridSizeX);
 }
 
+///////////////////////////////////////////////////////////////
 
 function renderRefSeq(data, gridSizeX, trackHeight=10) {
   svgRefSeq.selectAll(".referenceLabel")
@@ -104,11 +105,11 @@ function renderCoverage(data, gridSizeX, trackHeight=40) {
       .attr('fill', function(d, i) { return d.color; } )
       .on("mouseover", function(d, i) {
           tooltip.html(d.stackOrder.map(function (b) {
-                return "<font color=" + colorScale(b) + ">" +
-                       b + ": " + data.coverage[d.position][b]; })
-                .reverse().join("<br>"))
-              .style("left", (d3.event.pageX + 10) + "px")
+                  return "<font color=" + colorScale(b) + ">" +
+                         b + ": " + data.coverage[d.position][b];
+           }).reverse().join("<br>"))
               .style("top", (d3.event.pageY - 28) + "px")
+              .style("left", (d3.event.pageX + 10) + "px")
           tooltip.transition()
               .duration(200)
               .style("opacity", .9);
@@ -148,33 +149,23 @@ function renderReads(data, gridSizeX, trackHeight=500) {
     return(expanded);
   }
 
-  svgReads.selectAll("*").remove();
-  var cards = svgReads.selectAll(".card").data(expandReads(data))
-      gridSizeY = trackHeight / data.reads.length;
+  var oldCards = svgReads.selectAll("*");
+  oldCards.remove()
+  var newCards = svgReads.selectAll(".card").data(expandReads(data)),
+      gridSizeY = trackHeight / data.reads.length,
+      referenceBases = data.reference.split("");
 
-  cards.append("title");
-  cards.enter().append("rect")
+  newCards.enter().append("rect")
       .attr("x", function(d) { return d.x * gridSizeX; })
       .attr("y", function(d) { return d.y * gridSizeY; })
       // .attr("rx", 2)
       // .attr("ry", 2)
       // .attr("class", "bordered")
       .attr("width", gridSizeX)
-      .attr("height", gridSizeY);
-
-  var referenceBases = data.reference.split("");
-  cards.transition().duration(500)
-      .style("fill", function(d) {
-        if (d.base === referenceBases[d.x]) {
-          return(d.fwd ? "purple" : "pink")
-        }
-        else {
-          return colorScale(d.base);
-        }
-      });
-
-  cards.select("title").text(function(d) { return d.value; });
-  cards.exit().remove();
+      .attr("height", gridSizeY)
+      .attr("fill", function(d) { return d.base === referenceBases[d.x] ?
+                                          (d.fwd ? "purple" : "pink") : colorScale(d.base); })
+      ;
 }
 
 ///////////////////////////////////////////////////////////////
@@ -241,5 +232,5 @@ function sortReads(data, position=null) {
     }
   }
 
-  data.reads.sort(compare)
+  data.reads.sort(compare);
 }

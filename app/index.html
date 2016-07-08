@@ -14,18 +14,17 @@
       div.tooltip {
         position: absolute;
         text-align: left;
-        width: 40px;
-        height: 55px;
+        width: auto;
+        height: auto;
         padding: 10px;
         font: 12px sans-serif;
-        background: #97C6E5;
+        background: #E5E5E5;
         border: 6px;
         border-radius: 8px;
         pointer-events: none;
       }
     </style>
-    <script src="/static/d3.v3.js"></script>
-    <script src="/static/jquery.min.js"></script>
+    <script src="/d3.v3.js"></script>
     <script src="/render.js"></script>
   </head>
   <body>
@@ -60,6 +59,7 @@
                   }
                   data = JSON.parse(request.response);
                   gridSizeX = (width - margin.left - margin.right) / data.reference.length;
+                  console.log("Data loaded");
                   render(data, gridSizeX);
               });
     </script>
