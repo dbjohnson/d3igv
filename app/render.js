@@ -24,8 +24,8 @@ function initSVGs(width, margin, refseq, coverage, reads) {
 ///////////////////////////////////////////////////////////////
 
 function render(data, gridSizeX) {
-  positionalSort = true
-  sortReads(data, position=Math.floor(data.reference.length / 2));
+  positionalSort = false
+  sortReads(data);
   renderRefSeq(data, gridSizeX);
   renderCoverage(data, gridSizeX);
   renderReads(data, gridSizeX);
@@ -48,8 +48,8 @@ function renderRefSeq(data, gridSizeX, trackHeight=10) {
 ///////////////////////////////////////////////////////////////
 
 function renderCoverage(data, gridSizeX, trackHeight=40) {
-  var maxCoverage = d3.max(data.coverage, function(d) {
-    return d3.sum(bases.map(function (b) { return d[b]; }));
+  var maxCoverage = d3.max(Object.keys(data.coverage), function(p) {
+    return d3.sum(bases.map(function (b) { return data.coverage[p][b]; }));
   });
 
   var yscale = d3.scale.linear()
@@ -62,7 +62,7 @@ function renderCoverage(data, gridSizeX, trackHeight=40) {
   for (i in data.coverage) {
     var y = 0,
         cov = data.coverage[i],
-        referenceBase = referenceBases[i],
+        referenceBase = referenceBases[i - data.start],
         sortedBases = bases.slice().sort(function (a, b) {
           // sort bases by coverage so that the bases with the highest
           // read count go at the bottom of the stacked bar.  The reference
@@ -74,7 +74,7 @@ function renderCoverage(data, gridSizeX, trackHeight=40) {
             return 1;
           }
           else {
-            return cov[a] - cov[b]; }
+            return cov[b] - cov[a]; }
         })
 
 
@@ -85,7 +85,7 @@ function renderCoverage(data, gridSizeX, trackHeight=40) {
       stacked.push({
         base: base,
         position: i,
-        x: i * gridSizeX,
+        x: (i - data.start) * gridSizeX,
         y: trackHeight - y - height,
         height: height,
         color: base === referenceBase ? "grey" : colorScale(base),
@@ -139,11 +139,11 @@ function renderReads(data, gridSizeX, trackHeight=500) {
     for (var i = 0; i < data.reads.length; i++) {
       var read = data.reads[i]
           read_bases = read.sequence.split("");
-      for (var pos = 0; pos < read_bases.length; pos++) {
-        expanded.push({x: read.start + pos,
+      for (var offset = 0; offset < read_bases.length; offset++) {
+        expanded.push({x: read.start + offset - data.start,
                        y: i,
                        fwd: read.fwd,
-                       base: read_bases[pos]});
+                       base: read_bases[offset]});
       }
     }
     return(expanded);
@@ -163,9 +163,12 @@ function renderReads(data, gridSizeX, trackHeight=500) {
       // .attr("class", "bordered")
       .attr("width", gridSizeX)
       .attr("height", gridSizeY)
-      .attr("fill", function(d) { return d.base === referenceBases[d.x] ?
-                                          (d.fwd ? "purple" : "pink") : colorScale(d.base); })
-      ;
+      .attr("fill", function(d) { if (d.base === referenceBases[d.x]) {
+                                    return d.fwd ? "purple" : "pink"
+                                  }
+                                  else {
+                                    return colorScale(d.base);
+                                  }});
 }
 
 ///////////////////////////////////////////////////////////////
@@ -187,7 +190,7 @@ function sortReads(data, position=null) {
       }
 
       function baseCoverage(base) {
-        if (base === data.reference[position]) {
+        if (base === data.reference[position - data.start]) {
           // put wild-type reads at the bottom
           return 0;
         }
@@ -224,7 +227,8 @@ function sortReads(data, position=null) {
         s += a.fwd ? -data.reference.length : data.reference.length;
       }
       function startDelay(read) {
-        return read.fwd ? read.start : data.reference.length - (read.start + read.sequence.length);
+        offset = read.start - data.start
+        return read.fwd ? offset : data.reference.length - (offset + read.sequence.length);
       }
 
       s += startDelay(a) - startDelay(b);

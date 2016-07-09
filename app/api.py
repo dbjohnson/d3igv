@@ -5,7 +5,7 @@ from flask import jsonify
 from flask import send_from_directory
 
 
-from app import read_generator
+from app.bam import SimBAM
 
 
 api = Flask(__name__)
@@ -15,7 +15,7 @@ DEFAULT_ARGS = {'read_error_rate': 0.003,
                 'sequence_length': 80,
                 'num_reads': 100,
                 'max_SNPs': 4,
-                'tumor_content': 0.8}
+                'tumor_content': 0.3}
 
 
 @api.route('/reads', methods=['POST'])
@@ -25,7 +25,7 @@ def get_reads():
         if k not in args:
             args[k] = v
 
-    return jsonify(read_generator.generate_fake_reads(**args))
+    return jsonify(SimBAM.fetch_segment(**args))
 
 
 @api.route('/', methods=['GET'])
