@@ -86,7 +86,8 @@ class SimBAM(BAM):
         SNPs = [SimBAM._make_SNP(reference_sequence, tumor_content, reticle=(i == 0))
                 for i in xrange(random.randrange(1, max_SNPs))]
 
-        reads = [SimBAM._make_fake_read(reference_sequence, read_error_rate, SNPs)
+        fwd_fraction = random.random() * 0.4 + 0.3
+        reads = [SimBAM._make_fake_read(reference_sequence, read_error_rate, SNPs, fwd_fraction)
                  for _ in xrange(num_reads)]
 
         return {'chr': 'chr1',
@@ -97,11 +98,11 @@ class SimBAM(BAM):
                 'coverage': BAM.pileup(reads)}
 
     @staticmethod
-    def _make_fake_read(reference_sequence, read_error_rate, SNPs):
+    def _make_fake_read(reference_sequence, read_error_rate, SNPs, fwd_fraction):
         read_sequence = reference_sequence[:]
         with_read_errors = SimBAM._induce_read_errors(read_sequence, read_error_rate)
         with_SNPs = SimBAM._induce_SNP_reads(with_read_errors, SNPs)
-        return SimBAM._trim_read(with_SNPs, random.choice([True, False]))
+        return SimBAM._trim_read(with_SNPs, random.random() < fwd_fraction)
 
     @staticmethod
     def _make_SNP(reference_sequence, tumor_content=0.3,
