@@ -12,10 +12,12 @@ api = Flask(__name__)
 
 
 DEFAULT_ARGS = {'read_error_rate': 0.003,
-                'sequence_length': 80,
+                'tumor_content': 0.3,
+                'chrom': 'ch1',
+                'start': 0,
+                'end': 80,
                 'num_reads': 100,
-                'max_SNPs': 4,
-                'tumor_content': 0.3}
+                'max_SNPs': 4}
 
 
 @api.route('/reads', methods=['POST'])
@@ -25,7 +27,10 @@ def get_reads():
         if k not in args:
             args[k] = v
 
-    return jsonify(SimBAM.fetch_segment(**args))
+    simbam = SimBAM(args['read_error_rate'], args['tumor_content'])
+    args.pop('read_error_rate')
+    args.pop('tumor_content')
+    return jsonify(simbam.fetch_segment(**args))
 
 
 @api.route('/', methods=['GET'])

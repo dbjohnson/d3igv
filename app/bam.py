@@ -77,17 +77,19 @@ class BAM(object):
 
 
 class SimBAM(BAM):
-    @staticmethod
-    def fetch_segment(read_error_rate=0.03, sequence_length=80, num_reads=100,
-                      max_SNPs=4, tumor_content=0.3):
-        reference_sequence = [random.choice(BASES)
-                              for _ in xrange(sequence_length)]
+    def __init__(self, read_error_rate, tumor_content):
+        self.read_error_rate = read_error_rate
+        self.tumor_content = tumor_content
 
-        SNPs = [SimBAM._make_SNP(reference_sequence, tumor_content, reticle=(i == 0))
+    def fetch_segment(self, chrom, start, end, num_reads=100, max_SNPs=4):
+        # reference_sequence = BAM.fetch_reference_for_segment(chrom, start, end)
+        reference_sequence = [random.choice(BASES)
+                              for _ in xrange(end - start + 1)]
+        SNPs = [self._make_SNP(reference_sequence)
                 for i in xrange(random.randrange(1, max_SNPs))]
 
         fwd_fraction = random.random() * 0.4 + 0.3
-        reads = [SimBAM._make_fake_read(reference_sequence, read_error_rate, SNPs, fwd_fraction)
+        reads = [self._make_fake_read(reference_sequence, SNPs, fwd_fraction)
                  for _ in xrange(num_reads)]
 
         return {'chr': 'chr1',
@@ -97,29 +99,24 @@ class SimBAM(BAM):
                 'reads': reads,
                 'coverage': BAM.pileup(reads)}
 
-    @staticmethod
-    def _make_fake_read(reference_sequence, read_error_rate, SNPs, fwd_fraction):
+    def _make_fake_read(self, reference_sequence, SNPs, fwd_fraction):
         read_sequence = reference_sequence[:]
-        with_read_errors = SimBAM._induce_read_errors(read_sequence, read_error_rate)
+        with_read_errors = self._induce_read_errors(read_sequence)
         with_SNPs = SimBAM._induce_SNP_reads(with_read_errors, SNPs)
         return SimBAM._trim_read(with_SNPs, random.random() < fwd_fraction)
 
-    @staticmethod
-    def _make_SNP(reference_sequence, tumor_content=0.3,
-                  homozygous=random.choice([True, False]),
-                  reticle=False):
-        pos = len(reference_sequence) / 2 if reticle else random.randrange(len(reference_sequence))
+    def _make_SNP(self, reference_sequence, homozygous=random.choice([True, False])):
+        pos = random.randrange(len(reference_sequence))
         reference_base = reference_sequence[pos]
         mutant_base = random.choice([b for b in BASES if b != reference_base])
-        max_af = tumor_content if homozygous else tumor_content / 2.
+        max_af = self.tumor_content if homozygous else self.tumor_content / 2.
         af = (1 + random.random()) / 2 * max_af
         return {'pos': pos,
                 'base': mutant_base,
                 'af': af}
 
-    @staticmethod
-    def _induce_read_errors(read_sequence, read_error_rate):
-        return [b if random.random() > read_error_rate
+    def _induce_read_errors(self, read_sequence):
+        return [b if random.random() > self.read_error_rate
                 else random.choice(BASES)
                 for b in read_sequence]
 

@@ -49,8 +49,10 @@
           .header("Content-Type", "application/json")
           .post(JSON.stringify({
                   num_reads: 300,
-                  sequence_length: 80,
-                  read_error_rate: 0.003
+                  chrom: 'chr1',
+                  start: 0,
+                  end: 80,
+                  read_error_rate: 0.005
               }),
               function(err, request) {
                   if (err != undefined) {
