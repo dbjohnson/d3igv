@@ -5,7 +5,8 @@
 
 This is a hobby project using [D3](https://d3js.org/) to recreate a lightweight [Integrated Genome Viewer](https://www.broadinstitute.org/igv/)-like interface for viewing genomic sequencing data.
 
-This project does not currently allow for processing reads from real BAM files; all data is simulated via crude model (no indels, no correlation between read presence for multiple SNPs, etc).   This is just a visualization exercise.
+A sample BAM file is included, along with a crude model that can be used to generate simulated reads.  The bedfile for the sample BAM was generated using the [make_bedfile.py](scripts/make_bedfile.py) script, which simply searches for regions with good coverage.
+
 
 ## Quickstart
 
@@ -22,7 +23,15 @@ HTTP server| `gunicorn app:wsgi`
 ## API Routes
 **POST /reads**
 
-Returns simulated reads with randomized read length, read errors and [SNPs](https://en.wikipedia.org/wiki/Single-nucleotide_polymorphism).  The reference sequence is randomized.
+```json
+{
+  "chrom": "chr1",
+  "start": 10000,
+  "end": 10100
+}
+```
+
+Sample output
 
 ```json
 {
@@ -59,16 +68,3 @@ Returns simulated reads with randomized read length, read errors and [SNPs](http
 ```
 
 
-**Optional arguments**
-
-These arguments specify the simulation model parameters
-
-```json
-{
-  "sequence_length": 80,
-  "tumor_content": 0.3,
-  "read_error_rate": 0.03,
-  "max_SNPs": 4,
-  "num_reads": 100
-}
-```

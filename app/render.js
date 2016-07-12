@@ -34,6 +34,7 @@ function render(data, gridSizeX) {
 ///////////////////////////////////////////////////////////////
 
 function renderRefSeq(data, gridSizeX, trackHeight=10) {
+  svgRefSeq.selectAll("*").remove();
   svgRefSeq.selectAll(".referenceLabel")
       .data(data.reference.split(""))
       .enter().append("text")

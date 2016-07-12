@@ -28,6 +28,11 @@
     <script src="/render.js"></script>
   </head>
   <body>
+    <form id="amplicons"; action="javascript:load_reads()">
+      <select id="amplicon"; name="amplicon"></select>
+      <input type="submit">
+    </form>
+    </p>
     <div id="refseq_track"></div>
     <div id="coverage_track"></div>
     <div id="reads_track"></div>
@@ -45,25 +50,41 @@
                {div: "#coverage_track", height: 40},
                {div: "#reads_track", height: 500})
 
-      d3.xhr("/reads")
-          .header("Content-Type", "application/json")
-          .post(JSON.stringify({
-                  num_reads: 300,
-                  chrom: 'chr1',
-                  start: 0,
-                  end: 80,
-                  read_error_rate: 0.005
-              }),
-              function(err, request) {
-                  if (err != undefined) {
-                      document.write(err.response);
-                      document.close();
-                  }
-                  data = JSON.parse(request.response);
-                  gridSizeX = (width - margin.left - margin.right) / data.reference.length;
-                  console.log("Data loaded");
-                  render(data, gridSizeX);
-              });
+      d3.xhr("/amplicons")
+          .get(function(err, request) {
+              if (err != undefined) {
+                  document.write(err.response);
+                  document.close();
+              }
+              amplicons = JSON.parse(request.response);
+              var amps = d3.select("#amplicon").selectAll(".amplicons").data(amplicons);
+              amps.enter().append("option")
+                .attr("value", function (d) { return d; })
+                .attr("label", function(d) { return d[0] + ": " + d[1] + " - " + d[2]; } )
+
+          });
+
+      function load_reads() {
+        amplicon = document.getElementById("amplicon").value.split(",");
+
+        d3.xhr("/reads")
+            .header("Content-Type", "application/json")
+            .post(JSON.stringify({
+                    chrom: amplicon[0],
+                    start: parseInt(amplicon[1]),
+                    end: parseInt(amplicon[2])
+                }),
+                function(err, request) {
+                    if (err != undefined) {
+                        document.write(err.response);
+                        document.close();
+                    }
+                    data = JSON.parse(request.response);
+                    gridSizeX = (width - margin.left - margin.right) / data.reference.length;
+                    console.log("Data loaded");
+                    render(data, gridSizeX);
+                });
+      }
     </script>
   </body>
 </html>

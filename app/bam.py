@@ -31,11 +31,12 @@ class BAM(object):
                 'coverage': coverage}
 
     def fetch_reads(self, chrom, start, end):
+        print chrom, start, end
         return [{'sequence': r.query_sequence,
                  'fwd': not r.is_reverse,
                  'quality': r.mapq,
                  'start': r.reference_start}
-                for r in self.bam.fetch(chrom, start, end)
+                for r in self.bam.fetch(str(chrom), start, end)
                 if r.reference_start >= start and r.reference_start + len(r.query_sequence) <= end]
 
     @staticmethod
@@ -47,7 +48,7 @@ class BAM(object):
                 raise RuntimeError("Non-200 response received from UCSC: {}".format(resp))
 
             e = ElementTree.fromstring(resp.text)
-            segment_to_reference[segment] = e.find('SEQUENCE').find('DNA').text.strip().upper()
+            segment_to_reference[segment] = e.find('SEQUENCE').find('DNA').text.replace('\n', '').upper()
 
         return segment_to_reference[segment]
 
@@ -65,6 +66,7 @@ class BAM(object):
 
     @staticmethod
     def reference_by_consensus(pileup):
+        assert True == False
         reference_sequence = []
         for position in sorted(pileup.keys()):
             coverage = pileup[position]
