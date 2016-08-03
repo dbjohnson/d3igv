@@ -24,8 +24,8 @@
         pointer-events: none;
       }
     </style>
-    <script src="/d3.v3.js"></script>
-    <script src="/render.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="render.js"></script>
   </head>
   <body>
     <form id="amplicons"; action="javascript:load_reads()">
@@ -76,13 +76,18 @@
                 }),
                 function(err, request) {
                     if (err != undefined) {
-                        document.write(err.response);
-                        document.close();
+                      d3.json("../simulation/demo.json", function(data) {
+                          gridSizeX = (width - margin.left - margin.right) / data.reference.length;
+                          console.log("Data loaded");
+                          render(data, gridSizeX);
+                      });
                     }
-                    data = JSON.parse(request.response);
-                    gridSizeX = (width - margin.left - margin.right) / data.reference.length;
-                    console.log("Data loaded");
-                    render(data, gridSizeX);
+                    else {
+                      data = JSON.parse(request.response);
+                      gridSizeX = (width - margin.left - margin.right) / data.reference.length;
+                      console.log("Data loaded");
+                      render(data, gridSizeX);
+                    }
                 });
       }
     </script>

@@ -1,0 +1,1318 @@
+{
+  "chr": "chr1",
+  "coverage": {
+    "70808400": {
+      "A": 5,
+      "C": 0,
+      "G": 0,
+      "T": 0
+    },
+    "70808401": {
+      "A": 8,
+      "C": 0,
+      "G": 0,
+      "T": 0
+    },
+    "70808402": {
+      "A": 12,
+      "C": 0,
+      "G": 0,
+      "T": 0
+    },
+    "70808403": {
+      "A": 9,
+      "C": 0,
+      "G": 3,
+      "T": 2
+    },
+    "70808404": {
+      "A": 22,
+      "C": 0,
+      "G": 0,
+      "T": 0
+    },
+    "70808405": {
+      "A": 28,
+      "C": 2,
+      "G": 0,
+      "T": 0
+    },
+    "70808406": {
+      "A": 58,
+      "C": 1,
+      "G": 0,
+      "T": 0
+    },
+    "70808407": {
+      "A": 1,
+      "C": 84,
+      "G": 0,
+      "T": 0
+    },
+    "70808408": {
+      "A": 104,
+      "C": 0,
+      "G": 0,
+      "T": 0
+    },
+    "70808409": {
+      "A": 1,
+      "C": 119,
+      "G": 0,
+      "T": 0
+    },
+    "70808410": {
+      "A": 138,
+      "C": 0,
+      "G": 0,
+      "T": 0
+    },
+    "70808411": {
+      "A": 1,
+      "C": 157,
+      "G": 0,
+      "T": 0
+    },
+    "70808412": {
+      "A": 169,
+      "C": 0,
+      "G": 0,
+      "T": 1
+    },
+    "70808413": {
+      "A": 4,
+      "C": 166,
+      "G": 0,
+      "T": 0
+    },
+    "70808414": {
+      "A": 166,
+      "C": 1,
+      "G": 3,
+      "T": 0
+    },
+    "70808415": {
+      "A": 7,
+      "C": 161,
+      "G": 2,
+      "T": 0
+    },
+    "70808416": {
+      "A": 169,
+      "C": 0,
+      "G": 1,
+      "T": 0
+    },
+    "70808417": {
+      "A": 0,
+      "C": 169,
+      "G": 1,
+      "T": 0
+    },
+    "70808418": {
+      "A": 156,
+      "C": 8,
+      "G": 1,
+      "T": 5
+    },
+    "70808419": {
+      "A": 170,
+      "C": 0,
+      "G": 0,
+      "T": 0
+    },
+    "70808420": {
+      "A": 0,
+      "C": 1,
+      "G": 2,
+      "T": 167
+    },
+    "70808421": {
+      "A": 168,
+      "C": 0,
+      "G": 2,
+      "T": 0
+    },
+    "70808422": {
+      "A": 156,
+      "C": 4,
+      "G": 3,
+      "T": 7
+    },
+    "70808423": {
+      "A": 16,
+      "C": 139,
+      "G": 10,
+      "T": 5
+    },
+    "70808424": {
+      "A": 164,
+      "C": 5,
+      "G": 0,
+      "T": 1
+    },
+    "70808425": {
+      "A": 6,
+      "C": 161,
+      "G": 2,
+      "T": 1
+    },
+    "70808426": {
+      "A": 156,
+      "C": 14,
+      "G": 0,
+      "T": 0
+    },
+    "70808427": {
+      "A": 12,
+      "C": 152,
+      "G": 5,
+      "T": 1
+    },
+    "70808428": {
+      "A": 166,
+      "C": 3,
+      "G": 1,
+      "T": 0
+    },
+    "70808429": {
+      "A": 6,
+      "C": 161,
+      "G": 3,
+      "T": 0
+    },
+    "70808430": {
+      "A": 164,
+      "C": 2,
+      "G": 1,
+      "T": 3
+    },
+    "70808431": {
+      "A": 8,
+      "C": 157,
+      "G": 3,
+      "T": 2
+    },
+    "70808432": {
+      "A": 167,
+      "C": 0,
+      "G": 1,
+      "T": 2
+    },
+    "70808433": {
+      "A": 9,
+      "C": 159,
+      "G": 1,
+      "T": 1
+    },
+    "70808434": {
+      "A": 165,
+      "C": 2,
+      "G": 0,
+      "T": 3
+    },
+    "70808435": {
+      "A": 13,
+      "C": 153,
+      "G": 4,
+      "T": 0
+    },
+    "70808436": {
+      "A": 160,
+      "C": 1,
+      "G": 1,
+      "T": 3
+    },
+    "70808437": {
+      "A": 7,
+      "C": 154,
+      "G": 1,
+      "T": 0
+    },
+    "70808438": {
+      "A": 150,
+      "C": 3,
+      "G": 3,
+      "T": 2
+    },
+    "70808439": {
+      "A": 5,
+      "C": 144,
+      "G": 5,
+      "T": 2
+    },
+    "70808440": {
+      "A": 144,
+      "C": 1,
+      "G": 1,
+      "T": 2
+    },
+    "70808441": {
+      "A": 0,
+      "C": 139,
+      "G": 0,
+      "T": 1
+    },
+    "70808442": {
+      "A": 105,
+      "C": 1,
+      "G": 1,
+      "T": 4
+    },
+    "70808443": {
+      "A": 5,
+      "C": 79,
+      "G": 1,
+      "T": 0
+    },
+    "70808444": {
+      "A": 63,
+      "C": 3,
+      "G": 0,
+      "T": 0
+    },
+    "70808445": {
+      "A": 4,
+      "C": 46,
+      "G": 0,
+      "T": 0
+    },
+    "70808446": {
+      "A": 32,
+      "C": 0,
+      "G": 0,
+      "T": 0
+    },
+    "70808447": {
+      "A": 0,
+      "C": 11,
+      "G": 1,
+      "T": 0
+    }
+  },
+  "end": 70808448,
+  "reads": [
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "AAAAAAACACACACACACAACAACACACACACACAC",
+      "start": 70808400
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "AAAAAAACACACACACACAAGAACACACACACACAC",
+      "start": 70808400
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "AAAGACACACACACACACAAGAACACACACACACAC",
+      "start": 70808400
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "AAAGACACACACACACACAATAACACACACACACAC",
+      "start": 70808400
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "AAAAAAACACACACACACAATAACACACACACACAC",
+      "start": 70808400
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "AAAAAACACACACACACAATAACACCCACACACACG",
+      "start": 70808401
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "AAAAAACACACACACACAATGACACACACACACACA",
+      "start": 70808401
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "AAGAAACACACACACACAATGACACACACACACACA",
+      "start": 70808401
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ATAAACACACACACACAATAATACACACACACACAC",
+      "start": 70808402
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ATAAACACACACACACAATAATACACACACACACAC",
+      "start": 70808402
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "AAAAACACACACACACAATAACACACACACACACAC",
+      "start": 70808402
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "AAAAACACACACGCACAATAACACACACACACACAC",
+      "start": 70808402
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "AAAACACACACACACAATAATACACACACACACACA",
+      "start": 70808403
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "AAAACACACAAACACAATAACACACACACACACACA",
+      "start": 70808403
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "AACAACACACACACAATAACACACACACACACACAC",
+      "start": 70808404
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "AAACACACAAACACAATAACACACACACAAACACAC",
+      "start": 70808404
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "AAACACACACACACCATAACACACACACACACAAAC",
+      "start": 70808404
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "AAACAAACACACACAATAACACACACACACACACAC",
+      "start": 70808404
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "AAACACACACACACAATACCACACACACACACTCAC",
+      "start": 70808404
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "AAACACACACACACAATAACACACACACACACACAC",
+      "start": 70808404
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "AAACACACACACACAATAACACACACACACACACAT",
+      "start": 70808404
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "AAACACACACACACAATAACACACACACACAATAAC",
+      "start": 70808404
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "AACACACACACACAATAACACACAATAACACACACA",
+      "start": 70808405
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "AACACACACACACAATAACTCCAACACACACACACA",
+      "start": 70808405
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "AACACACACACACCATAACACACACACACACACAAA",
+      "start": 70808405
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "AACACACACACACAATAATAAACACACACACACACT",
+      "start": 70808405
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "AACACACACACACAATATAACACACACACACACACA",
+      "start": 70808405
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "AACACACACACACCATAACACACACACACACACACC",
+      "start": 70808405
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "AACACACACACACCATAACACACACACACACACACA",
+      "start": 70808405
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "AACACACACGCACAATAACACACACGCACACAGACA",
+      "start": 70808405
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACACACAATAACACACACACACACACACAC",
+      "start": 70808406
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACACACAATAACACACACACACAAACACAC",
+      "start": 70808406
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACACACAATAACACACACAAACACACACAC",
+      "start": 70808406
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACACACAATAAGACCAACACACACACACAC",
+      "start": 70808406
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACACACCATAACACACACACACACACACAC",
+      "start": 70808406
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACACACAATAACACAAAAACACACACACAC",
+      "start": 70808406
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACACACTATAACACACACACACACACACAC",
+      "start": 70808406
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACACACAATACCACACACACACACACACAC",
+      "start": 70808406
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACACACAATAACACACACACACACACTAAC",
+      "start": 70808406
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACAAACAATAACACACACACACACACACAC",
+      "start": 70808406
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACGCACAATAACACACACACACAGACACAC",
+      "start": 70808406
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACAAACAATAACACACACACACACACACAC",
+      "start": 70808406
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACACACAATAACACACACACACACACGCAC",
+      "start": 70808406
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACACACAATAAAACCGACACACACACACAC",
+      "start": 70808406
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACACACAATAACCCACACACACACACACAC",
+      "start": 70808406
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACACACAATATAACACACACACACACACAC",
+      "start": 70808406
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACACACAATAAGACACACAAACACACACAC",
+      "start": 70808406
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACACACCATAACACACACACACACACGCAC",
+      "start": 70808406
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACACACAATAAGACACACACACAAACACAC",
+      "start": 70808406
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACACACCATAACACACACACACACACACAC",
+      "start": 70808406
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACACACGATAACCCACACACACACACATAC",
+      "start": 70808406
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACAAACAATAACACACACACACACACAAAC",
+      "start": 70808406
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACACACAATAACACACACACACACACACAC",
+      "start": 70808406
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACACACAATAACACACACACACAGACACAC",
+      "start": 70808406
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACACACAATAAGACCAACACACACACACAC",
+      "start": 70808406
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACAGACAATAACACACACACACACACACAC",
+      "start": 70808406
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACACACAATAACACACACACACACACACAC",
+      "start": 70808406
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACACACCATAACACACACACACACACACAC",
+      "start": 70808406
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACACACAATAACACACACACACACACCGAC",
+      "start": 70808406
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACACACAATAACAAACACACACACACACACA",
+      "start": 70808407
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACACACAATAAAACACACACACACACACACA",
+      "start": 70808407
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACACACAATAACACACAGCCACACACACACA",
+      "start": 70808407
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACACACAATACCACACACACACACACACACA",
+      "start": 70808407
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACACACAATAAAACACACACACACACACACA",
+      "start": 70808407
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "CACACACACACAATATCACACACACACACACACACT",
+      "start": 70808407
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "CACACACACACAATAACACACACAGTAACACACACA",
+      "start": 70808407
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACACACAATATCACACACACACACACACACA",
+      "start": 70808407
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACACACAATAAAACACACACACAAACACACA",
+      "start": 70808407
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACACACAATAAGAAACACACACACACACACA",
+      "start": 70808407
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACACACAATAAAACCAACACACACACACACA",
+      "start": 70808407
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "CACACACACACTATAACACACACACAGACACACACA",
+      "start": 70808407
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACACAGAATAACACACACACACACACACACA",
+      "start": 70808407
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "CACACACACACAATAACACCTCCACACACACACACA",
+      "start": 70808407
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACACACAATATCACACACACACACACACACA",
+      "start": 70808407
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACACACAATATAACACACACACACACACACA",
+      "start": 70808407
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "CACACACACACTATAACACACACACACACACACGCA",
+      "start": 70808407
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "CACACACACACAATACCACACACACACACACACACA",
+      "start": 70808407
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACACACAATAACACACACACACACACACTCA",
+      "start": 70808407
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACACACAATAACAAACAAATACACACACACA",
+      "start": 70808407
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACACACAATAACCCACACACACACACACACA",
+      "start": 70808407
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACACGCAATAACACACACAAACACACACACA",
+      "start": 70808407
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACAAACAATAACACACACACACACACACACA",
+      "start": 70808407
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACACACAATAACACACACACACAAACACACA",
+      "start": 70808407
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACACACAATAAAACCGACACACACACACACA",
+      "start": 70808407
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACACACAATAAGACCAACACACACACACACA",
+      "start": 70808407
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACACAATAACACACAGACACACACACACAC",
+      "start": 70808408
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACACAATAAAACACACACACACACACACAC",
+      "start": 70808408
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACACAATAACACACACACACACACGCACGC",
+      "start": 70808408
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACAGACAATAACACACACAGACACACACACAC",
+      "start": 70808408
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACACAATAAAAGAGACACACACACACACAC",
+      "start": 70808408
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACACAATAAAACCCCCACACACACACACAC",
+      "start": 70808408
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACACAATAACAGACACACACACACACACAC",
+      "start": 70808408
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACAAACACAATAACACACACACACACACACACAA",
+      "start": 70808408
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACACAATAACACACACACACACACACACAC",
+      "start": 70808408
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACAAACAATAACACCCACAAACACACACACAC",
+      "start": 70808408
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACACAATAACACACACACACACACACACAC",
+      "start": 70808408
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACACAATAACACACACACACACACACACAC",
+      "start": 70808408
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACACAATAACACACACACACACACACACAC",
+      "start": 70808408
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACACAATAAAACCGACACACACACACACAC",
+      "start": 70808408
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACAAACACACTATAACACACACACACACACAAACAC",
+      "start": 70808408
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACACAATAACACACACATACACACACACAC",
+      "start": 70808408
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACACAATAACACACACACACACACACACAC",
+      "start": 70808408
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACACAATAAAACACAAACACACACACACAC",
+      "start": 70808408
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACACAATAACACACACACACAAACACACAC",
+      "start": 70808408
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACACAATAACACACACACACACACACACACC",
+      "start": 70808409
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "CACACACACAATAAGACCAACACACACACACACACA",
+      "start": 70808409
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "CACACACACAATAACACACACACACACACACACTAA",
+      "start": 70808409
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "CACACACACAATAACACACACACACTAACACACACA",
+      "start": 70808409
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACACAATAACAAACACACACACACACACAGA",
+      "start": 70808409
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACACAATAACACACACACACACACAGACACA",
+      "start": 70808409
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "CACACACACAATAACACACACACACTGACACACACA",
+      "start": 70808409
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACAAACAATAACACACACACACACACACACACA",
+      "start": 70808409
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACACAATAACACACACACACAAACTAACACA",
+      "start": 70808409
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACACAATAACACACACACACACACACACACA",
+      "start": 70808409
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACACAATAAGACCGACACACACACACACACA",
+      "start": 70808409
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "CACACACACAATAACCCACCCACACACACACACACA",
+      "start": 70808409
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACACAATAGCACACACACACACACACACACA",
+      "start": 70808409
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACAAACAATAACACACACACACACACACACACC",
+      "start": 70808409
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACACTATAACACAAACACACACACACACACA",
+      "start": 70808409
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "CACACACACAATAACACACACACACACACACACACA",
+      "start": 70808409
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACAATAACACACACACACACAACCACACAC",
+      "start": 70808410
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACAATAACACACACACACACAACCACACAC",
+      "start": 70808410
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACCCACAATAACACACACACACACACACACACAC",
+      "start": 70808410
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACAATAACACAAACACACACAAACACACAC",
+      "start": 70808410
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACAATAACACACACACGCACAAACACACAC",
+      "start": 70808410
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACAATAACACACACTAACACACACACACAC",
+      "start": 70808410
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACAATAACACAAACACACACACACACAAAC",
+      "start": 70808410
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACAATAGCACACACACACACACACACACAC",
+      "start": 70808410
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACAATATCACACACACACACACACACACAC",
+      "start": 70808410
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACAATAGCACACACACACACACACACTCAC",
+      "start": 70808410
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACAATAACACACACACAACAACACACACAC",
+      "start": 70808410
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACAATAACACAAACACACACAAACACACAC",
+      "start": 70808410
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACAATAACACACACACACCATCACACACAC",
+      "start": 70808410
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACAATAAAACACACACACACACACACACAC",
+      "start": 70808410
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACAATAACACACGCACACAAACACACAAAC",
+      "start": 70808410
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACAATAACACACACACACTAACACACACAC",
+      "start": 70808410
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACACAATAACACACACAATAACACACACACAC",
+      "start": 70808410
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACACAATAAGACACACACACACACACACACAC",
+      "start": 70808410
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACAATAACACACACACACACACACACACACA",
+      "start": 70808411
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACAATAACACACACACACACACACACTAACA",
+      "start": 70808411
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "CACACACAATAACACACACACACACACACACACACA",
+      "start": 70808411
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACAATAACACACACACACACACACACACACA",
+      "start": 70808411
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACAATAACACACACACACACACACACACACA",
+      "start": 70808411
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACAATAACACACACACAAAAACACACACACA",
+      "start": 70808411
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "CAAACACAATAACACACACACACACACACACACACA",
+      "start": 70808411
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "CACACACAATAACACACACACAAACACACACACACA",
+      "start": 70808411
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "CACACACAATAAGAAACACACACACACACACACACA",
+      "start": 70808411
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "CACACACAATAATACACACACACACACACACACACA",
+      "start": 70808411
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACAATAACACAAACACAAACACACACACACA",
+      "start": 70808411
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACAATAACACACACACACACACACACACACA",
+      "start": 70808411
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACAATAACACACACTCACACACACACACACA",
+      "start": 70808411
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACAATAACACACACACACACACACACACACA",
+      "start": 70808411
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACAATAACACACACACACACACACACACCCA",
+      "start": 70808411
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACAATAACACACACACACACACACACACACA",
+      "start": 70808411
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACAATAAAACACACAGACACACACACACACA",
+      "start": 70808411
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CTCACACAATAACACACACACACACACACACACACA",
+      "start": 70808411
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "CACACACAATAACACACACACACAGACACACACACA",
+      "start": 70808411
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "CACACACAATAACATACACACACACACACACACACA",
+      "start": 70808411
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACAATAACACACACACACACACACACACAAAC",
+      "start": 70808412
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACAATAACACACAAACACACACAGACACAAAC",
+      "start": 70808412
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACAATAACACACACACACACACACATACACAC",
+      "start": 70808412
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACAATAACCCACACACATACACACACACACAC",
+      "start": 70808412
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACAATAACACACAGACACACACACACACACAC",
+      "start": 70808412
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACAATAACACACACACAAACACAGACACACAC",
+      "start": 70808412
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACAATAACACACACACAAACACAGACACACAC",
+      "start": 70808412
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACAATAACACACACACACACACACACACACAG",
+      "start": 70808412
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACAATAACACACACCCACACACACACCCACAC",
+      "start": 70808412
+    },
+    {
+      "fwd": false,
+      "quality": 25,
+      "sequence": "ACACACAATAACACACAAAAACACCCACACACACAC",
+      "start": 70808412
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACAATAACACACACACACACACACACACAAAC",
+      "start": 70808412
+    },
+    {
+      "fwd": true,
+      "quality": 25,
+      "sequence": "ACACACAATAACACACACACACACACACACACAAAC",
+      "start": 70808412
+    }
+  ],
+  "reference": "AAAGAAACACACACACACAATAACACACACACACACACACACACACAC",
+  "start": 70808400
+}

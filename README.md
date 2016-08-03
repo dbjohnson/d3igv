@@ -17,7 +17,8 @@ HTTP server| `gunicorn app:wsgi`
 
 
 ## Sample output
-![](sample.png)
+[Live demo](https://dbjohnson.github.io/d3igv)
+![](resources/sample.png)
 
   
 ## API Routes
