@@ -53,10 +53,13 @@
       d3.xhr("/amplicons")
           .get(function(err, request) {
               if (err != undefined) {
-                  document.write(err.response);
-                  document.close();
+                  d3.json("../resources/amplicons.json", function(data) {
+                      amplicons = data;
+                  });
               }
-              amplicons = JSON.parse(request.response);
+              else {
+                amplicons = JSON.parse(request.response);
+              }
               var amps = d3.select("#amplicon").selectAll(".amplicons").data(amplicons);
               amps.enter().append("option")
                 .attr("value", function (d) { return d; })
@@ -76,7 +79,7 @@
                 }),
                 function(err, request) {
                     if (err != undefined) {
-                      d3.json("../simulation/demo.json", function(data) {
+                      d3.json("../resources/demo.json", function(data) {
                           gridSizeX = (width - margin.left - margin.right) / data.reference.length;
                           console.log("Data loaded");
                           render(data, gridSizeX);
