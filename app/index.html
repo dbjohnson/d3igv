@@ -28,7 +28,7 @@
     <script src="render.js"></script>
   </head>
   <body>
-    <form id="amplicons"; action="javascript:load_reads()">
+    <form id="amplicons"; action="javascript:loadReads()">
       <select id="amplicon"; name="amplicon"></select>
       <input type="submit">
     </form>
@@ -50,24 +50,7 @@
                {div: "#coverage_track", height: 40},
                {div: "#reads_track", height: 500})
 
-      d3.xhr("/amplicons")
-          .get(function(err, request) {
-              if (err != undefined) {
-                  d3.json("../resources/amplicons.json", function(data) {
-                      amplicons = data;
-                  });
-              }
-              else {
-                amplicons = JSON.parse(request.response);
-              }
-              var amps = d3.select("#amplicon").selectAll(".amplicons").data(amplicons);
-              amps.enter().append("option")
-                .attr("value", function (d) { return d; })
-                .attr("label", function(d) { return d[0] + ": " + d[1] + " - " + d[2]; } )
-
-          });
-
-      function load_reads() {
+      function loadReads() {
         amplicon = document.getElementById("amplicon").value.split(",");
 
         d3.xhr("/reads")
@@ -93,6 +76,26 @@
                     }
                 });
       }
+
+
+      d3.xhr("/amplicons")
+          .get(function(err, request) {
+              if (err != undefined) {
+                var amps = d3.select("#amplicon").selectAll(".amplicons").data(amplicons);
+                amps.enter().append("option")
+                  .attr("value", function (d) { return "demo"; })
+                  .attr("label", function(d) { return "demo"; } )
+                  loadReads()
+              }
+              else {
+                amplicons = JSON.parse(request.response);
+                var amps = d3.select("#amplicon").selectAll(".amplicons").data(amplicons);
+                amps.enter().append("option")
+                  .attr("value", function (d) { return d; })
+                  .attr("label", function(d) { return d[0] + ": " + d[1] + " - " + d[2]; } )
+              }
+
+          });
     </script>
   </body>
 </html>
